@@ -20,11 +20,11 @@ public class Lista {
 	
 	public Lista(){
 		elenco = new Vector<Persona>();
+		//elenco = stub.getStub();
 		r = new Reader();
 		w = new Writer();
 		if (r.file.exists()) 
 			elenco = r.getData();
-			//elenco = stub.getStub();
 	}
 	
 

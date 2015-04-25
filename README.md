@@ -5,8 +5,8 @@ implemented using Java swing library, a BC layer that builds a class that inheri
 that writes and reads all the informations from a .txt file.
 Before running, you should create a simple text file, named informazioni.txt and place it in the directory C: of your pc. Once the file has been properly created and placed, all the records will be saved within it using the format:
 
-name1;surname1;address1;phone1;age1 \n
-name2;surname2;address2;phone2;age2 \n
-......... \n
+name1;surname1;address1;phone1;age1 
+name2;surname2;address2;phone2;age2 
+......... 
 
 they will be retrieved at any subsequent run of the application. If the file doesn't exist, the application runs and behaves without problems, but it won't save anything.

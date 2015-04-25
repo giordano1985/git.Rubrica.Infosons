@@ -9,4 +9,4 @@ name1;surname1;address1;phone1;age1
 name2;surname2;address2;phone2;age2
 .........
 
-they will be retrieved at any subsequent run of the application. If the file doesn't exist, the application runs and behaves without problems, but it won't save any informations.
+they will be retrieved at any subsequent run of the application. If the file doesn't exist, the application runs and behaves without problems, but it won't save anything.

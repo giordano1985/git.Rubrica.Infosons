@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Alessandro Giordano
  *
  */
-public class TabellaModel extends DefaultTableModel {
+public class TabellaModel extends DefaultTableModel implements BCMessages {
 	
 	/**
 	 * 
@@ -26,8 +26,6 @@ public class TabellaModel extends DefaultTableModel {
 	private String[] columnNames = {"nome","cognome","telefono"};
 	private String[][] values;
 	
-	private static final String NFE_MESSAGE = "Illegal.format.on.age.field";
-	private static final String AIOE_MESSAGE =  "unexpected.index.on.Lista.java ";
 	
 	/**
 	 * The constructor takes all the values form Lista class
@@ -118,12 +116,7 @@ public class TabellaModel extends DefaultTableModel {
 	 * @param index
 	 */
 	public void updateLista(Persona updated, int index) {
-		try {
-		lista.update(updated, index);
-		}
-		catch (NumberFormatException nfe) {
-			JOptionPane.showMessageDialog(null, NFE_MESSAGE);
-		}
+			lista.update(updated, index);
 	}
 	
 }

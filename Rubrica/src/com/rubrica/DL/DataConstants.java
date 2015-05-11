@@ -1,5 +1,7 @@
 package com.rubrica.DL;
 
+import java.io.File;
+
 /**
  * DataConstants interface provides all the constants required from Reader 
  * and Writer classes.
@@ -9,7 +11,7 @@ package com.rubrica.DL;
 public interface DataConstants {
 
 	//path constant
-	public static final String PATH = "rubrica_data\\informazioni.txt";
+	public static final String PATH = "rubrica_data" + File.separator + "informazioni.txt";
 
 	//MessageDialog constant messages
 	public static final String INFO_MESSAGE = "retrieving.data?";

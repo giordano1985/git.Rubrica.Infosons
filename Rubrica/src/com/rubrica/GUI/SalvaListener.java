@@ -3,8 +3,10 @@ package com.rubrica.GUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import com.rubrica.BC.BCMessages;
 import com.rubrica.BC.Persona;
 import com.rubrica.BC.TabellaModel;
 
@@ -16,7 +18,7 @@ import com.rubrica.BC.TabellaModel;
  * @author Alessandro Giordano
  *
  */
-public class SalvaListener implements ActionListener {
+public class SalvaListener implements ActionListener, BCMessages {
 
 	Inserisci inserisci;
 	TabellaModel tabellaModel;
@@ -36,11 +38,15 @@ public class SalvaListener implements ActionListener {
 		tabellaModel = inserisci.launcher.tabella;
 		if(inserisci.getModifica()==true) {
 			Persona updated = new Persona();
-			updated.setNome(nome.getText());
-			updated.setCognome(cognome.getText());
-			updated.setIndirizzo(indirizzo.getText());
-			updated.setTelefono(telefono.getText());
-			updated.setEta(Integer.parseInt(eta.getText()));
+			try {
+				updated.setNome(nome.getText());
+				updated.setCognome(cognome.getText());
+				updated.setIndirizzo(indirizzo.getText());
+				updated.setTelefono(telefono.getText());
+				updated.setEta(Integer.parseInt(eta.getText()));
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, NFE_MESSAGE);
+			}
 			tabellaModel.updateLista(updated, inserisci.launcher.elenco.getSelectedRow());
 			tabellaModel.setValueAt(nome.getText(), inserisci.launcher.elenco.getSelectedRow(), 0);
 			tabellaModel.setValueAt(cognome.getText(), inserisci.launcher.elenco.getSelectedRow(), 1);

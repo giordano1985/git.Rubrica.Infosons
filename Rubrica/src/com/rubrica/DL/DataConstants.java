@@ -9,7 +9,7 @@ package com.rubrica.DL;
 public interface DataConstants {
 
 	//path constant
-	public static final String PATH = "C:\\informazioni.txt";
+	public static final String PATH = "rubrica_data\\informazioni.txt";
 
 	//MessageDialog constant messages
 	public static final String INFO_MESSAGE = "retrieving.data?";

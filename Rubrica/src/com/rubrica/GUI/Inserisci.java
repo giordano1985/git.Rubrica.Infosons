@@ -1,14 +1,15 @@
 package com.rubrica.GUI;
 
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import com.rubrica.BC.Persona;
 
 /**
@@ -29,9 +30,12 @@ public class Inserisci extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private boolean modifica;
+	
+	private String text1 = "Premere salva per confermare;";
+	private String text2 = "premere annulla per annullare.";
 
 	protected JTextField nome, cognome, indirizzo, telefono, eta;
-	private JLabel nomeL, cognomeL, indL, telL, etaL;
+	private JLabel nomeL, cognomeL, indL, telL, etaL, t1, t2;
 	JButton salva, annulla;
 	Launcher launcher;
 	ActionListener list;
@@ -64,11 +68,11 @@ public class Inserisci extends JFrame {
 	 * private method that initializes all the components of the current frame.
 	 */
 	private void initComp() {
-		nome = new JTextField("inserisci nome", 25);
-		cognome = new JTextField("inserisci cognome", 25);
-		indirizzo = new JTextField("inserisci indirizzo", 25);
-		telefono = new JTextField("inserisci telefono", 25);
-		eta = new JTextField("inserisci età", 25);
+		nome = new JTextField("inserisci nome", 20);
+		cognome = new JTextField("inserisci cognome", 20);
+		indirizzo = new JTextField("inserisci indirizzo", 20);
+		telefono = new JTextField("inserisci telefono", 20);
+		eta = new JTextField("inserisci età", 20);
 		if (modifica == true) {
 			Persona temp = new Persona();
 			temp.setNome(launcher.values.elementAt(
@@ -89,15 +93,19 @@ public class Inserisci extends JFrame {
 		}
 		
 		nomeL = new JLabel();
-		nomeL.setText("nome");
+		nomeL.setText("nome: ");
 		cognomeL = new JLabel();
-		cognomeL.setText("cognome");
+		cognomeL.setText("cognome: ");
 		indL = new JLabel();
-		indL.setText("indirizzo");
+		indL.setText("indirizzo: ");
 		telL = new JLabel();
-		telL.setText("telefono");
+		telL.setText("telefono: ");
 		etaL = new JLabel();
-		etaL.setText("eta");
+		etaL.setText("eta: ");
+		t1 = new JLabel();
+		t1.setText(text1);
+		t2 = new JLabel();
+		t2.setText(text2);
 		
 		salva = new JButton();
 		salva.setText("salva");
@@ -112,31 +120,31 @@ public class Inserisci extends JFrame {
 	 * private method that builds the layout of the current frame.
 	 */
 	private void createLayout() {
-		JPanel n = new JPanel();
-		n.add(nome);
-		n.add(nomeL);
-		JPanel c = new JPanel();
-		c.add(cognome);
-		c.add(cognomeL);
-		JPanel i = new JPanel();
-		i.add(indirizzo);
-		i.add(indL);
-		JPanel t = new JPanel();
-		t.add(telefono);
-		t.add(telL);
-		JPanel e = new JPanel();
-		e.add(eta);
-		e.add(etaL);
 		JPanel pulsanti = new JPanel();
 		pulsanti.add(salva);
 		pulsanti.add(annulla);
-		setLayout(new GridLayout(6, 1));
-		add(n);
-		add(c);
-		add(i);
-		add(t);
-		add(e);
-		add(pulsanti);
+		JPanel text = new JPanel(new GridLayout(2, 1));
+		text.add(t1);
+		text.add(t2);
+		JPanel labels = new JPanel(new GridLayout(6, 1));
+		labels.add(nomeL);
+		labels.add(cognomeL);
+		labels.add(indL);
+		labels.add(telL);
+		labels.add(etaL);
+		labels.add(text);
+		JPanel fields  = new JPanel(new GridLayout(6, 1));
+		fields.add(nome);
+		fields.add(cognome);
+		fields.add(indirizzo);
+		fields.add(telefono);
+		fields.add(eta);
+		fields.add(pulsanti);
+		Box group = Box.createHorizontalBox();
+		group.add(labels);
+		group.add(fields);
+		setLayout(new FlowLayout());
+		add(group);
 		pack();
 		setVisible(true);
 

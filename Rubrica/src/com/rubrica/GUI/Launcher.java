@@ -58,7 +58,7 @@ public class Launcher extends JFrame{
 		
 		showPath = new JLabel();
 		showPath.setText(path);
-		showPath.setHorizontalAlignment(SwingConstants.CENTER);;
+		showPath.setHorizontalAlignment(SwingConstants.CENTER);
 
 		nuovo = new JButton("nuovo contatto");
 		modifica = new JButton("modifica contatto");

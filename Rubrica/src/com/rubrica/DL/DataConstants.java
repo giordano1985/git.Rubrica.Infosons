@@ -14,8 +14,6 @@ public interface DataConstants {
 	public static final String PATH = "rubrica_data" + File.separator + "informazioni.txt";
 
 	//MessageDialog constant messages
-	public static final String INFO_MESSAGE = "retrieving.data?";
-	
 	public static final String WRITE_FAILURE = "exception.occurred.while.writing.data";
 	public static final String WRITER_FAILURE = "exception.occurred.while.initializing.writer";
 	public static final String WRITE_FAILURE_CLOSE = "exception.occurred.while.closing.writing.resource";

@@ -32,7 +32,6 @@ public class Reader implements DataConstants {
 				reader = new FileReader(PATH);
 				sc = new Scanner(reader);
 				sc.useDelimiter(";|"+ LINE_SEPARATOR_PATTERN);
-				JOptionPane.showMessageDialog(null, INFO_MESSAGE);
 			} else
 				return;
 		} catch (IOException ioe) {

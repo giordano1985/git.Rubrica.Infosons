@@ -36,7 +36,7 @@ public class SalvaListener implements ActionListener, BCMessages {
 		JTextField telefono = inserisci.telefono;
 		JTextField eta = inserisci.eta;
 		tabellaModel = inserisci.launcher.tabella;
-		if(inserisci.getModifica()==true) {
+		if(inserisci.getModifica() == true) {
 			Persona updated = new Persona();
 			try {
 				updated.setNome(nome.getText());
@@ -44,13 +44,14 @@ public class SalvaListener implements ActionListener, BCMessages {
 				updated.setIndirizzo(indirizzo.getText());
 				updated.setTelefono(telefono.getText());
 				updated.setEta(Integer.parseInt(eta.getText()));
-			} catch (NumberFormatException nfe) {
+				tabellaModel.updateLista(updated, inserisci.launcher.elenco.getSelectedRow());
+				tabellaModel.setValueAt(nome.getText(), inserisci.launcher.elenco.getSelectedRow(), 0);
+				tabellaModel.setValueAt(cognome.getText(), inserisci.launcher.elenco.getSelectedRow(), 1);
+				tabellaModel.setValueAt(telefono.getText(), inserisci.launcher.elenco.getSelectedRow(), 2);
+			} 
+			catch (NumberFormatException nfe) {
 				JOptionPane.showMessageDialog(null, NFE_MESSAGE);
 			}
-			tabellaModel.updateLista(updated, inserisci.launcher.elenco.getSelectedRow());
-			tabellaModel.setValueAt(nome.getText(), inserisci.launcher.elenco.getSelectedRow(), 0);
-			tabellaModel.setValueAt(cognome.getText(), inserisci.launcher.elenco.getSelectedRow(), 1);
-			tabellaModel.setValueAt(telefono.getText(), inserisci.launcher.elenco.getSelectedRow(), 2);
 		}
 		else {
 		Object[] rowData = { nome.getText(), cognome.getText(),

@@ -25,7 +25,7 @@ import com.rubrica.DL.DataConstants;
  * @author Alessandro Giordano
  *
  */
-public class Launcher extends JFrame{
+public class Launcher extends JFrame {
 
 	/**
 	 * 
